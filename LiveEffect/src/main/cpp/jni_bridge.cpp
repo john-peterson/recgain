@@ -45,6 +45,15 @@ Java_com_google_oboe_samples_liveEffect_LiveEffectEngine_delete(JNIEnv *env,
     }
 }
 
+JNIEXPORT void JNICALL
+Java_com_google_oboe_samples_liveEffect_LiveEffectEngine_setGain(
+        JNIEnv *env, jclass, jfloat gain) {
+    if (engine == nullptr) {
+        return;
+    }
+    engine->setGain(gain);
+}
+
 JNIEXPORT jboolean JNICALL
 Java_com_google_oboe_samples_liveEffect_LiveEffectEngine_setEffectOn(
     JNIEnv *env, jclass, jboolean isEffectOn) {

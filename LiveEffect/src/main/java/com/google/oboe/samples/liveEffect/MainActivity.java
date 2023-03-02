@@ -30,6 +30,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,7 @@ public class MainActivity extends Activity
     private static final int OBOE_API_OPENSL_ES=1;
 
     private TextView statusText;
+    private SeekBar simpleSeekBar;
     private Button toggleEffectButton;
     private AudioDeviceSpinner recordingDeviceSpinner;
     private AudioDeviceSpinner playbackDeviceSpinner;
@@ -60,6 +62,26 @@ public class MainActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // initiate  views
+        simpleSeekBar=(SeekBar)findViewById(R.id.seekBar2);
+        // perform seek bar change listener event used for getting the progress value
+        simpleSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChangedValue = 0;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChangedValue = progress;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+             public void onStopTrackingTouch(SeekBar seekBar) {
+                 Toast.makeText(MainActivity.this, "Seek bar progress is :" + progressChangedValue,
+                         Toast.LENGTH_SHORT).show();
+                LiveEffectEngine.setGain(progressChangedValue);
+             }
+         });
 
         statusText = findViewById(R.id.status_view_text);
         toggleEffectButton = findViewById(R.id.button_toggle_effect);

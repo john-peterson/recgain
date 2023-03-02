@@ -33,6 +33,7 @@ public enum LiveEffectEngine {
     static native boolean isAAudioRecommended();
     static native boolean setAPI(int apiType);
     static native boolean setEffectOn(boolean isEffectOn);
+    static native void setGain(float gain);
     static native void setRecordingDeviceId(int deviceId);
     static native void setPlaybackDeviceId(int deviceId);
     static native void delete();

@@ -27,6 +27,8 @@ class LiveEffectEngine : public oboe::AudioStreamCallback {
 public:
     LiveEffectEngine();
 
+    void setGain(float gain);
+
     void setRecordingDeviceId(int32_t deviceId);
     void setPlaybackDeviceId(int32_t deviceId);
 

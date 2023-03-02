@@ -41,6 +41,13 @@ bool LiveEffectEngine::setAudioApi(oboe::AudioApi api) {
     return true;
 }
 
+void LiveEffectEngine::setGain(float gain) {
+    // dB range is 0 to 30, slider too
+    if (gain > 0) {
+        mFullDuplexPass.mGain = pow(10, (((-0 + 30) * gain / 30.0) / 20.0));
+    }
+}
+
 bool LiveEffectEngine::setEffectOn(bool isOn) {
     bool success = true;
     if (isOn != mIsEffectOn) {

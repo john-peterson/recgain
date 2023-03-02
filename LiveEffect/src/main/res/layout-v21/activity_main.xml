@@ -125,4 +125,12 @@
         app:layout_constraintTop_toBottomOf="@+id/button_toggle_effect"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="326dp"
+        android:layout_height="22dp"
+        android:max="30"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="247dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
