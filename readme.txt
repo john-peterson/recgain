@@ -1,0 +1,1 @@
+Trying to create the optimal operational amplifier. textbook. sounds horrible now. is there a way to reduce the effect of overmodulation. looking for an ffmpeg encoder now   ... .   on the horizon i want to detect voice frames and measure the correct gain. maybe i am just pushing the gain into the impossioble above +15 db
