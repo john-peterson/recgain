@@ -51,11 +51,11 @@ public:
 
         // It is possible that there may be fewer input than output samples.
         int32_t samplesToProcess = std::min(numInputSamples, numOutputSamples);
-        int32_t out;
+        float out;
         for (int32_t i = 0; i < samplesToProcess; i++) {
             out = *inputFloats++ * mGain;
-            if (out < -32768 ) { out = -32768; }
-            if (out > +32767) { out = +32767; }
+            if (out < -1 ) { out = -1; }
+            if (out > +1) { out = +1; }
             *outputFloats++ = out;
         }
 
